@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../directives/events", "../../pipes/joinpipe"], function(exports_1, context_1) {
+System.register(["angular2/core"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,40 +10,30 @@ System.register(["angular2/core", "../../directives/events", "../../pipes/joinpi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, events_1, joinpipe_1;
-    var HomePage;
+    var core_1;
+    var JoinPipe;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (events_1_1) {
-                events_1 = events_1_1;
-            },
-            function (joinpipe_1_1) {
-                joinpipe_1 = joinpipe_1_1;
             }],
         execute: function() {
-            HomePage = (function () {
-                function HomePage() {
-                    this.holamundo = "Hola mundo, Paco";
-                    this.otrotexto = "Otro texto";
-                    this.otrotextomas = "Otro texto mas";
-                    this.colors = ["rojo", "amarillo", "azul", "naranja"];
+            JoinPipe = (function () {
+                function JoinPipe() {
                 }
-                HomePage = __decorate([
-                    core_1.Component({
-                        selector: "my-app",
-                        templateUrl: 'app/components/home/app.html',
-                        directives: [events_1.EventsDir],
-                        pipes: [joinpipe_1.JoinPipe]
+                JoinPipe.prototype.transform = function (arr, args) {
+                    return arr.join(args[0]);
+                };
+                JoinPipe = __decorate([
+                    core_1.Pipe({
+                        name: "join"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], HomePage);
-                return HomePage;
+                ], JoinPipe);
+                return JoinPipe;
             }());
-            exports_1("HomePage", HomePage);
+            exports_1("JoinPipe", JoinPipe);
         }
     }
 });
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=joinpipe.js.map
