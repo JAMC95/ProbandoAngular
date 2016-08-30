@@ -1,12 +1,14 @@
 
 import {Component} from "angular2/core";
+import {Underline} from "../../directives/underline";
 
     @Component({
         selector: "my-app",
-        templateUrl: 'app/components/app.html'
+        templateUrl: 'app/components/home/app.html',
+        directives: [Underline]
     })
 
-    export class AppComponent{
+    export class HomePage{
         holamundo: string;
         otrotexto: string;
         otrotextomas: string;

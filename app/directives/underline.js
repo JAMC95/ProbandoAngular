@@ -11,30 +11,32 @@ System.register(["angular2/core"], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var AppComponent;
+    var Underline;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
-                    this.holamundo = "Hola mundo, Paco";
-                    this.otrotexto = "Otro texto";
-                    this.otrotextomas = "Otro texto mas";
+            Underline = (function () {
+                function Underline(_element, _renderer) {
+                    this._element = _element;
+                    this._renderer = _renderer;
+                    _renderer.setElementStyle(_element, "text-decoration", "underline");
+                    _renderer.setElementStyle(_element, "color", "red");
+                    _renderer.setElementAttribute(_element, "data-name", "underline");
+                    _renderer.setElementClass(_element, "customClass", true);
                 }
-                AppComponent = __decorate([
-                    core_1.Component({
-                        selector: "my-app",
-                        templateUrl: 'app/components/app.html'
+                Underline = __decorate([
+                    core_1.Directive({
+                        selector: "[underline]"
                     }), 
-                    __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                    __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer])
+                ], Underline);
+                return Underline;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("Underline", Underline);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=underline.js.map
