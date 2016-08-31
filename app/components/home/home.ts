@@ -1,6 +1,6 @@
 import {Component} from "angular2/core";
 import {EventsDir} from "../../directives/events";
-
+import {ConfigConstantApp,ViewConstantApp} from "../../constants/appconstants"
 
     @Component({
         selector: "my-app",
@@ -10,15 +10,8 @@ import {EventsDir} from "../../directives/events";
     })
 
     export class HomePage{
-        holamundo: string;
-        otrotexto: string;
-        otrotextomas: string;
-        h1text: string= "Hola mundo";
-        constructor(){
-            this.holamundo = "Hola mundo, Paco";
-            this.otrotexto = "Otro texto";
-            this.otrotextomas = "Otro texto mas";
-            //this.colors = ["rojo","amarillo","azul","naranja"];
+       
+        constructor(public ConfigurationConstants: ConfigConstantApp, public viewConstants: ViewConstantApp){
 
         }
     }

@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../directives/events"], function(exports_1, context_1) {
+System.register(["angular2/core", "../../directives/events", "../../constants/appconstants"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "../../directives/events"], function(exports_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, events_1;
+    var core_1, events_1, appconstants_1;
     var HomePage;
     return {
         setters:[
@@ -19,15 +19,15 @@ System.register(["angular2/core", "../../directives/events"], function(exports_1
             },
             function (events_1_1) {
                 events_1 = events_1_1;
+            },
+            function (appconstants_1_1) {
+                appconstants_1 = appconstants_1_1;
             }],
         execute: function() {
             HomePage = (function () {
-                function HomePage() {
-                    this.h1text = "Hola mundo";
-                    this.holamundo = "Hola mundo, Paco";
-                    this.otrotexto = "Otro texto";
-                    this.otrotextomas = "Otro texto mas";
-                    //this.colors = ["rojo","amarillo","azul","naranja"];
+                function HomePage(ConfigurationConstants, viewConstants) {
+                    this.ConfigurationConstants = ConfigurationConstants;
+                    this.viewConstants = viewConstants;
                 }
                 HomePage = __decorate([
                     core_1.Component({
@@ -35,7 +35,7 @@ System.register(["angular2/core", "../../directives/events"], function(exports_1
                         templateUrl: 'app/components/home/app.html',
                         directives: [events_1.EventsDir],
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [appconstants_1.ConfigConstantApp, appconstants_1.ViewConstantApp])
                 ], HomePage);
                 return HomePage;
             }());
