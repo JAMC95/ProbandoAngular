@@ -5,6 +5,11 @@ import {EventsDir} from "../../directives/events";
         selector: "my-app",
         templateUrl: 'app/components/home/app.html',
         directives: [EventsDir],
+        styles: [`
+    .active {  color: green;  }
+    .inactive { color: red;  }
+    .error {  background: red;  color: white;  }
+` ]
 
     })
 

@@ -37,6 +37,7 @@ System.register(["angular2/core", "../../directives/events"], function(exports_1
                         selector: "my-app",
                         templateUrl: 'app/components/home/app.html',
                         directives: [events_1.EventsDir],
+                        styles: ["\n    .active {  color: green;  }\n    .inactive { color: red;  }\n    .error {  background: red;  color: white;  }\n"]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], HomePage);
