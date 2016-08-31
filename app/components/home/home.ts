@@ -1,12 +1,12 @@
 import {Component} from "angular2/core";
 import {EventsDir} from "../../directives/events";
-import {H1Pipe} from "../../pipes/h1pipe";
+
 
     @Component({
         selector: "my-app",
         templateUrl: 'app/components/home/app.html',
         directives: [EventsDir],
-        pipes: [H1Pipe]
+
     })
 
     export class HomePage{
