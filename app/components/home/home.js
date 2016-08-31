@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../directives/events", "../../constants/appconstants"], function(exports_1, context_1) {
+System.register(["angular2/core", "../../directives/events"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "../../directives/events", "../../constants/ap
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, events_1, appconstants_1;
+    var core_1, events_1;
     var HomePage;
     return {
         setters:[
@@ -19,15 +19,18 @@ System.register(["angular2/core", "../../directives/events", "../../constants/ap
             },
             function (events_1_1) {
                 events_1 = events_1_1;
-            },
-            function (appconstants_1_1) {
-                appconstants_1 = appconstants_1_1;
             }],
         execute: function() {
             HomePage = (function () {
-                function HomePage(ConfigurationConstants, viewConstants) {
-                    this.ConfigurationConstants = ConfigurationConstants;
-                    this.viewConstants = viewConstants;
+                function HomePage() {
+                    this.errorCount = 2;
+                    this.users = [
+                        { id: 1, name: "user1" },
+                        { id: 2, name: "user2" },
+                        { id: 3, name: "user3" },
+                        { id: 4, name: "user4" },
+                    ];
+                    this.modelBinding = "datos iniciales";
                 }
                 HomePage = __decorate([
                     core_1.Component({
@@ -35,7 +38,7 @@ System.register(["angular2/core", "../../directives/events", "../../constants/ap
                         templateUrl: 'app/components/home/app.html',
                         directives: [events_1.EventsDir],
                     }), 
-                    __metadata('design:paramtypes', [appconstants_1.ConfigConstantApp, appconstants_1.ViewConstantApp])
+                    __metadata('design:paramtypes', [])
                 ], HomePage);
                 return HomePage;
             }());

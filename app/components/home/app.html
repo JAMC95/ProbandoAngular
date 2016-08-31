@@ -1,2 +1,26 @@
-<div>{{ConfigurationConstants.constConfig}} <br>
-   {{ viewConstants.constView }}</div>
+<style>
+    .active {  color: green;  }
+    .inactive { color: red;  }
+    .error {  background: red;  color: white;  }
+</style>
+
+<div *ngIf="errorCount > 0" class="error">
+    Errores: {{ errorCount }}
+</div>
+
+<div [ngClass]="{active: errorCount > 0, inactive: errorCount ==0}">
+    Ejemplo ngClass
+</div>
+<div [ngSwitch]="errorCount">
+    <p *ngSwitchWhen="0">0 errores</p>
+    <p *ngSwitchWhen="1">1 error</p>
+    <p *ngSwitchWhen="2">2 errores</p>
+    <p *ngSwitchDefault>Mas de 2</p>
+</div>
+
+<div *ngFor="#user of users">
+    <p>Id: {{user.id}}, Name: {{user.name}}</p>
+</div>
+
+<input type="text" [(ngModel)]="modelBinding">
+{{modelBinding}}

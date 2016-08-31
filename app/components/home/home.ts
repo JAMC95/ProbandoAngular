@@ -1,6 +1,5 @@
 import {Component} from "angular2/core";
 import {EventsDir} from "../../directives/events";
-import {ConfigConstantApp,ViewConstantApp} from "../../constants/appconstants"
 
     @Component({
         selector: "my-app",
@@ -10,8 +9,20 @@ import {ConfigConstantApp,ViewConstantApp} from "../../constants/appconstants"
     })
 
     export class HomePage{
-       
-        constructor(public ConfigurationConstants: ConfigConstantApp, public viewConstants: ViewConstantApp){
+        errorCount: Number;
+        users: Array<Object>;
+        modelBinding:string;
 
+        constructor(){
+            this.errorCount = 2;
+            
+            this.users = [
+                {id: 1, name: "user1"},
+                {id: 2, name: "user2"},
+                {id: 3, name: "user3"},
+                {id: 4, name: "user4"},
+            ];
+        
+        this.modelBinding = "datos iniciales";
         }
     }
