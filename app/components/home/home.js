@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../providers/usercrud"], function(exports_1, context_1) {
+System.register(["angular2/core", "../../modules/validator"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,29 +10,30 @@ System.register(["angular2/core", "../../providers/usercrud"], function(exports_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, usercrud_1;
+    var core_1, validator_1;
     var HomePage;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (usercrud_1_1) {
-                usercrud_1 = usercrud_1_1;
+            function (validator_1_1) {
+                validator_1 = validator_1_1;
             }],
         execute: function() {
             HomePage = (function () {
-                function HomePage(userCrud) {
-                    this.userCrud = userCrud;
-                    console.log(userCrud);
+                function HomePage() {
+                    console.log(new validator_1.CustomValidator.EmailValid().isValid("paco@paco.es"));
+                    var testPass = new validator_1.CustomValidator.PasswordStrenght("123456");
+                    var score = testPass.scorePassword();
+                    console.log(testPass.checkPassStrength(score));
                 }
                 HomePage = __decorate([
                     core_1.Component({
                         selector: "my-app",
                         templateUrl: 'app/components/home/app.html',
-                        providers: [usercrud_1.UserCrud]
                     }), 
-                    __metadata('design:paramtypes', [usercrud_1.UserCrud])
+                    __metadata('design:paramtypes', [])
                 ], HomePage);
                 return HomePage;
             }());

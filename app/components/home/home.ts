@@ -1,15 +1,18 @@
 import {Component} from "angular2/core";
-import {UserCrud} from "../../providers/usercrud"
+import {CustomValidator} from "../../modules/validator"
     @Component({
         selector: "my-app",
         templateUrl: 'app/components/home/app.html',
-        providers: [UserCrud]
 
     })
 
     export class HomePage{
-        constructor(public userCrud: UserCrud){
-            console.log(userCrud);
+        constructor(){
+            console.log(new CustomValidator.EmailValid().isValid("paco@paco.es"));
+
+            let testPass = new CustomValidator.PasswordStrenght("123456");
+            let score = testPass.scorePassword();
+            console.log(testPass.checkPassStrength(score)); 
 
         }
 
