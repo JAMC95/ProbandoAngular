@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../directives/events"], function(exports_1, context_1) {
+System.register(["angular2/core", "../../directives/events", "../../providers/superadmin"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "../../directives/events"], function(exports_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, events_1;
+    var core_1, events_1, superadmin_1;
     var HomePage;
     return {
         setters:[
@@ -19,27 +19,23 @@ System.register(["angular2/core", "../../directives/events"], function(exports_1
             },
             function (events_1_1) {
                 events_1 = events_1_1;
+            },
+            function (superadmin_1_1) {
+                superadmin_1 = superadmin_1_1;
             }],
         execute: function() {
             HomePage = (function () {
-                function HomePage() {
-                    this.errorCount = 2;
-                    this.users = [
-                        { id: 1, name: "user1" },
-                        { id: 2, name: "user2" },
-                        { id: 3, name: "user3" },
-                        { id: 4, name: "user4" },
-                    ];
-                    this.modelBinding = "datos iniciales";
+                function HomePage(superAdmin) {
+                    console.log(superAdmin);
                 }
                 HomePage = __decorate([
                     core_1.Component({
                         selector: "my-app",
                         templateUrl: 'app/components/home/app.html',
                         directives: [events_1.EventsDir],
-                        styles: ["\n    .active {  color: green;  }\n    .inactive { color: red;  }\n    .error {  background: red;  color: white;  }\n"]
+                        providers: [superadmin_1.SuperAdmin]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [superadmin_1.SuperAdmin])
                 ], HomePage);
                 return HomePage;
             }());

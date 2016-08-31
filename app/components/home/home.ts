@@ -1,33 +1,21 @@
 import {Component} from "angular2/core";
 import {EventsDir} from "../../directives/events";
-
+import {SuperAdmin} from "../../providers/superadmin"
     @Component({
         selector: "my-app",
         templateUrl: 'app/components/home/app.html',
         directives: [EventsDir],
-        styles: [`
-    .active {  color: green;  }
-    .inactive { color: red;  }
-    .error {  background: red;  color: white;  }
-` ]
+        providers: [SuperAdmin]
 
     })
 
     export class HomePage{
-        errorCount: Number;
-        users: Array<Object>;
-        modelBinding:string;
+        constructor(superAdmin: SuperAdmin){
+            console.log(superAdmin);
 
-        constructor(){
-            this.errorCount = 2;
-            
-            this.users = [
-                {id: 1, name: "user1"},
-                {id: 2, name: "user2"},
-                {id: 3, name: "user3"},
-                {id: 4, name: "user4"},
-            ];
-        
-        this.modelBinding = "datos iniciales";
         }
+
+
+        
+
     }
