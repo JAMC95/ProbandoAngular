@@ -11,29 +11,29 @@ System.register(["angular2/core"], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var JoinPipe;
+    var H1Pipe;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            JoinPipe = (function () {
-                function JoinPipe() {
+            H1Pipe = (function () {
+                function H1Pipe() {
                 }
-                JoinPipe.prototype.transform = function (arr, args) {
-                    return arr.join(args[0]);
+                H1Pipe.prototype.transform = function (value, args) {
+                    return "<h1>" + value + "</h1>";
                 };
-                JoinPipe = __decorate([
+                H1Pipe = __decorate([
                     core_1.Pipe({
-                        name: "join"
+                        name: "pipeh1"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], JoinPipe);
-                return JoinPipe;
+                ], H1Pipe);
+                return H1Pipe;
             }());
-            exports_1("JoinPipe", JoinPipe);
+            exports_1("H1Pipe", H1Pipe);
         }
     }
 });
-//# sourceMappingURL=joinpipe.js.map
+//# sourceMappingURL=h1pipe.js.map

@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../directives/events", "../../pipes/joinpipe"], function(exports_1, context_1) {
+System.register(["angular2/core", "../../directives/events", "../../pipes/h1pipe"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "../../directives/events", "../../pipes/joinpi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, events_1, joinpipe_1;
+    var core_1, events_1, h1pipe_1;
     var HomePage;
     return {
         setters:[
@@ -20,23 +20,24 @@ System.register(["angular2/core", "../../directives/events", "../../pipes/joinpi
             function (events_1_1) {
                 events_1 = events_1_1;
             },
-            function (joinpipe_1_1) {
-                joinpipe_1 = joinpipe_1_1;
+            function (h1pipe_1_1) {
+                h1pipe_1 = h1pipe_1_1;
             }],
         execute: function() {
             HomePage = (function () {
                 function HomePage() {
+                    this.h1text = "Hola mundo";
                     this.holamundo = "Hola mundo, Paco";
                     this.otrotexto = "Otro texto";
                     this.otrotextomas = "Otro texto mas";
-                    this.colors = ["rojo", "amarillo", "azul", "naranja"];
+                    //this.colors = ["rojo","amarillo","azul","naranja"];
                 }
                 HomePage = __decorate([
                     core_1.Component({
                         selector: "my-app",
                         templateUrl: 'app/components/home/app.html',
                         directives: [events_1.EventsDir],
-                        pipes: [joinpipe_1.JoinPipe]
+                        pipes: [h1pipe_1.H1Pipe]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], HomePage);
