@@ -1,17 +1,15 @@
 import {Component} from "angular2/core";
-import {EventsDir} from "../../directives/events";
-import {SuperAdmin} from "../../providers/superadmin"
+import {UserCrud} from "../../providers/usercrud"
     @Component({
         selector: "my-app",
         templateUrl: 'app/components/home/app.html',
-        directives: [EventsDir],
-        providers: [SuperAdmin]
+        providers: [UserCrud]
 
     })
 
     export class HomePage{
-        constructor(superAdmin: SuperAdmin){
-            console.log(superAdmin);
+        constructor(public userCrud: UserCrud){
+            console.log(userCrud);
 
         }
 

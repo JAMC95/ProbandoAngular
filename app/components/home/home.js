@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../directives/events", "../../providers/superadmin"], function(exports_1, context_1) {
+System.register(["angular2/core", "../../providers/usercrud"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,29 @@ System.register(["angular2/core", "../../directives/events", "../../providers/su
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, events_1, superadmin_1;
+    var core_1, usercrud_1;
     var HomePage;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (events_1_1) {
-                events_1 = events_1_1;
-            },
-            function (superadmin_1_1) {
-                superadmin_1 = superadmin_1_1;
+            function (usercrud_1_1) {
+                usercrud_1 = usercrud_1_1;
             }],
         execute: function() {
             HomePage = (function () {
-                function HomePage(superAdmin) {
-                    console.log(superAdmin);
+                function HomePage(userCrud) {
+                    this.userCrud = userCrud;
+                    console.log(userCrud);
                 }
                 HomePage = __decorate([
                     core_1.Component({
                         selector: "my-app",
                         templateUrl: 'app/components/home/app.html',
-                        directives: [events_1.EventsDir],
-                        providers: [superadmin_1.SuperAdmin]
+                        providers: [usercrud_1.UserCrud]
                     }), 
-                    __metadata('design:paramtypes', [superadmin_1.SuperAdmin])
+                    __metadata('design:paramtypes', [usercrud_1.UserCrud])
                 ], HomePage);
                 return HomePage;
             }());
