@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../modules/validator"], function(exports_1, context_1) {
+System.register(["angular2/core", "../page1/page1", "../page2/page2", "angular2/router"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,29 +10,37 @@ System.register(["angular2/core", "../../modules/validator"], function(exports_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, validator_1;
+    var core_1, page1_1, page2_1, router_1;
     var HomePage;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (validator_1_1) {
-                validator_1 = validator_1_1;
+            function (page1_1_1) {
+                page1_1 = page1_1_1;
+            },
+            function (page2_1_1) {
+                page2_1 = page2_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             HomePage = (function () {
                 function HomePage() {
-                    console.log(new validator_1.CustomValidator.EmailValid().isValid("paco@paco.es"));
-                    var testPass = new validator_1.CustomValidator.PasswordStrenght("123456");
-                    var score = testPass.scorePassword();
-                    console.log(testPass.checkPassStrength(score));
                 }
                 HomePage = __decorate([
                     core_1.Component({
                         selector: "my-app",
                         templateUrl: 'app/components/home/app.html',
-                    }), 
+                        directives: [router_1.ROUTER_DIRECTIVES]
+                    }),
+                    router_1.RouteConfig([
+                        { path: '/', name: 'root', redirectTo: ['/Page1'] },
+                        { path: '/page1', name: 'Page1', component: page1_1.Page1 },
+                        { path: '/page2', name: 'Page2', component: page2_1.Page2 },
+                    ]), 
                     __metadata('design:paramtypes', [])
                 ], HomePage);
                 return HomePage;

@@ -1,18 +1,27 @@
 import {Component} from "angular2/core";
-import {CustomValidator} from "../../modules/validator"
+import {Page1} from "../page1/page1";
+import {Page2} from "../page2/page2";
+import {
+    RouteConfig,
+    ROUTER_DIRECTIVES
+} from "angular2/router";
+
     @Component({
         selector: "my-app",
         templateUrl: 'app/components/home/app.html',
+        directives: [ROUTER_DIRECTIVES]
 
     })
 
+    @RouteConfig([
+        {path: '/', name: 'root', redirectTo: ['/Page1']},
+        {path: '/page1', name: 'Page1', component: Page1},
+        {path: '/page2', name: 'Page2', component: Page2},
+
+    ])
     export class HomePage{
         constructor(){
-            console.log(new CustomValidator.EmailValid().isValid("paco@paco.es"));
 
-            let testPass = new CustomValidator.PasswordStrenght("123456");
-            let score = testPass.scorePassword();
-            console.log(testPass.checkPassStrength(score)); 
 
         }
 
