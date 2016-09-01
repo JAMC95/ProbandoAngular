@@ -39,6 +39,7 @@ System.register(["angular2/core", "../page1/page1", "../page2/page2", "angular2/
                     router_1.RouteConfig([
                         { path: '/', name: 'root', redirectTo: ['/Page1'] },
                         { path: '/page1', name: 'Page1', component: page1_1.Page1 },
+                        { path: '/page1/:id', name: 'Page1Detail', component: page1_1.Page1 },
                         { path: '/page2', name: 'Page2', component: page2_1.Page2 },
                     ]), 
                     __metadata('design:paramtypes', [])

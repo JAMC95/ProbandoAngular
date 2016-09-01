@@ -16,6 +16,7 @@ import {
     @RouteConfig([
         {path: '/', name: 'root', redirectTo: ['/Page1']},
         {path: '/page1', name: 'Page1', component: Page1},
+        {path: '/page1/:id', name: 'Page1Detail', component: Page1},
         {path: '/page2', name: 'Page2', component: Page2},
 
     ])
