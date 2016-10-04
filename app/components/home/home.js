@@ -26,8 +26,13 @@ System.register(["angular2/core", "../../providers/api/api", "angular2/http"], f
         execute: function() {
             HomePage = (function () {
                 function HomePage(api) {
+                    var _this = this;
                     this.api = api;
-                    console.log(this.api);
+                    this.api.getHeroes().then(function (res) {
+                        _this.heroes = res;
+                    }, function (error) {
+                        console.log(error);
+                    });
                 }
                 HomePage = __decorate([
                     core_1.Component({

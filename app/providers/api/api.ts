@@ -7,4 +7,20 @@ export class Api {
     constructor(http: Http) {
         this.http = http;
     }
+
+    getHeroes(){
+
+        return new Promise((resolve, reject) => {
+            this.http.get("app/resources/heroes.json").subscribe(
+                res => {
+                    resolve(res.json());
+                },
+                error =>{
+                    reject(error);
+                }
+            )
+        }
+        )
+
+    }
 }

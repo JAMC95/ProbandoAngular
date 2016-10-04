@@ -11,10 +11,19 @@ import {HTTP_PROVIDERS} from "angular2/http";
     })
 
     export class HomePage{
-        api: Api; 
+        api: Api;
+        heroes: Array<Object>;
             constructor(api: Api){
                 this.api = api;
-                console.log(this.api);
+
+                this.api.getHeroes().then(
+                    (res) => {
+                        this.heroes = res;
+                    },
+                    (error) => {
+                        console.log(error);
+                    }
+                )
             }
 
         
