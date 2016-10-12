@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../providers/api/api", "angular2/http"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/common"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,37 +10,39 @@ System.register(["angular2/core", "../../providers/api/api", "angular2/http"], f
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, api_1, http_1;
+    var core_1, common_1;
     var HomePage;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (api_1_1) {
-                api_1 = api_1_1;
-            },
-            function (http_1_1) {
-                http_1 = http_1_1;
+            function (common_1_1) {
+                common_1 = common_1_1;
             }],
         execute: function() {
             HomePage = (function () {
-                function HomePage(api) {
-                    var _this = this;
-                    this.api = api;
-                    this.api.getHeroes().then(function (res) {
-                        _this.heroes = res;
-                    }, function (error) {
-                        console.log(error);
+                function HomePage(builder) {
+                    this.heroForm = builder.group({
+                        name: ["", common_1.Validators.compose([
+                                common_1.Validators.required, common_1.Validators.minLength(2)
+                            ])],
+                        powers: ["", common_1.Validators.compose([
+                                common_1.Validators.required, common_1.Validators.maxLength(4)
+                            ])],
+                        age: ["", common_1.Validators.required]
                     });
+                    this.name = this.heroForm.controls['name'];
+                    this.powers = this.heroForm.controls['powers'];
+                    this.age = this.heroForm.controls['age'];
                 }
                 HomePage = __decorate([
                     core_1.Component({
                         selector: "my-app",
                         templateUrl: 'app/components/home/app.html',
-                        providers: [api_1.Api, http_1.HTTP_PROVIDERS]
+                        directives: [common_1.FORM_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [api_1.Api])
+                    __metadata('design:paramtypes', [common_1.FormBuilder])
                 ], HomePage);
                 return HomePage;
             }());

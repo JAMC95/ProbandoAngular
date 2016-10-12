@@ -1,7 +1,38 @@
-<h2 class="text-center">Heroes</h2>
-<hr>
-<ul class="list-group">
-    <li class="list-group-item" *ngFor="#hero of heroes">
-        ID: {{ hero.id }}, Nombre: {{ hero.name }}
-    </li>
-</ul>
+<form [ngFormModel]="heroForm" role="form">
+    <legend>Hero Form</legend>
+    <div class="form-group">
+        <label for="">Nombre</label>
+        <input type="text" class="form-control" ngControl="name">
+        <div *ngIf="name.hasError('required')"
+             class="alert alert-danger">
+            El nombre es requerido
+        </div>
+        <!-- se pone en minusculas aunque en el ts este con camelCase -->
+        <div *ngIf="name.hasError('minlength')"
+             class="alert alert-danger">
+            No puede ser menor a dos caracteres
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="">Poderes</label>
+        <input type="text" class="form-control" ngControl="powers">
+        <!-- Otra forma mas sencilla de validar-->
+        <div *ngIf="!powers.valid" class="alert alert-danger">Error en el poder </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="">Edad</label>
+        <input type="text" class="form-control" ngControl="age">
+        <div *ngIf="!age.valid" class="alert alert-danger">Error en la edad</div>
+    </div>
+    <button type="submit"
+            (submit)="save()"
+            [disabled]="!heroForm.valid"
+            class="btn btn-primary">
+        Guardar Héroes</button>
+</form>
+
+<div class="alert alert-danger" *ngIf="!heroForm.valid">Formulario no validado</div>
