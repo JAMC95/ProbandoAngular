@@ -30,7 +30,9 @@ System.register(["angular2/core", "angular2/common"], function(exports_1, contex
                         powers: ["", common_1.Validators.compose([
                                 common_1.Validators.required, common_1.Validators.maxLength(4)
                             ])],
-                        age: ["", common_1.Validators.required]
+                        age: ["", common_1.Validators.compose([
+                                common_1.Validators.required, this.ageValidator
+                            ])]
                     });
                     this.name = this.heroForm.controls['name'];
                     this.powers = this.heroForm.controls['powers'];
@@ -48,6 +50,12 @@ System.register(["angular2/core", "angular2/common"], function(exports_1, contex
                         console.log("El formulario de heroes ha cambiado ", value);
                     });
                 }
+                HomePage.prototype.ageValidator = function (control) {
+                    if (!control.value.match(/^[1-9][0-9]?$|^100$/)) {
+                        /*Siempre se devuelve un string y un booleano */
+                        return { 'invalidAge': true };
+                    }
+                };
                 HomePage = __decorate([
                     core_1.Component({
                         selector: "my-app",

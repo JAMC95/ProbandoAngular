@@ -26,7 +26,8 @@
     <div class="form-group">
         <label for="">Edad</label>
         <input type="text" class="form-control" ngControl="age">
-        <div *ngIf="!age.valid" class="alert alert-danger">Error en la edad</div>
+        <!-- invalidAge = Valor retornado en el método ageValidator creado en el .ts-->
+        <div *ngIf="age.hasError('invalidAge')" class="alert alert-danger">Error en la edad</div>
     </div>
     <button type="submit"
             (submit)="save()"

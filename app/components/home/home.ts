@@ -1,5 +1,5 @@
 import {Component} from "angular2/core";
-import {FormBuilder, FORM_DIRECTIVES, Validators, ControlGroup, AbstractControl} from "angular2/common";
+import {FormBuilder, FORM_DIRECTIVES, Control, Validators, ControlGroup, AbstractControl} from "angular2/common";
 
 
     @Component({
@@ -28,7 +28,11 @@ import {FormBuilder, FORM_DIRECTIVES, Validators, ControlGroup, AbstractControl}
                         ]
 
                     )],
-                    age: ["", Validators.required]
+                    age: ["", Validators.compose(
+                        [
+                            Validators.required, this.ageValidator
+                        ]
+                    )]
 
                 });
 
@@ -58,4 +62,10 @@ import {FormBuilder, FORM_DIRECTIVES, Validators, ControlGroup, AbstractControl}
                 )
             }
 
+        private ageValidator(control:Control):{[s: string]: boolean}{
+            if(!control.value.match(/^[1-9][0-9]?$|^100$/)){
+                /*Siempre se devuelve un string y un booleano */
+                return {'invalidAge': true};
+            }
+        }
     }
