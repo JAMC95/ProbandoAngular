@@ -1,5 +1,5 @@
 import {Component} from "angular2/core";
-import {FormBuilder, FORM_DIRECTIVES, Validators, ControlGroup} from "angular2/common";
+import {FormBuilder, FORM_DIRECTIVES, Validators, ControlGroup, AbstractControl} from "angular2/common";
 
 
     @Component({
@@ -11,9 +11,9 @@ import {FormBuilder, FORM_DIRECTIVES, Validators, ControlGroup} from "angular2/c
 
     export class HomePage{
             heroForm: ControlGroup; /*variable en el html*/
-            name: string;
-            powers: string;
-            age: string;
+            name: AbstractControl;
+            powers: AbstractControl;
+            age: AbstractControl;
             constructor(builder: FormBuilder){
                 this.heroForm = builder.group({
                     name: ["", Validators.compose(
@@ -35,6 +35,27 @@ import {FormBuilder, FORM_DIRECTIVES, Validators, ControlGroup} from "angular2/c
             this.name = this.heroForm.controls['name'];
             this.powers = this.heroForm.controls['powers'];
             this.age = this.heroForm.controls['age'];
+
+            this.name.valueChanges.subscribe(
+                (value:string) =>{
+                    console.log("valor del nombre: "+ value);
+                }
+            )
+            this.powers.valueChanges.subscribe(
+                    (value:string) =>{
+                        console.log("valor de poderes: "+ value);
+                    }
+                )
+            this.age.valueChanges.subscribe(
+                    (value:string) =>{
+                        console.log("valor del edad: "+ value);
+                    }
+                )
+            this.heroForm.valueChanges.subscribe(
+                    (value:string) =>{
+                        console.log("El formulario de heroes ha cambiado ", value);
+                    }
+                )
             }
 
     }

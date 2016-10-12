@@ -35,6 +35,18 @@ System.register(["angular2/core", "angular2/common"], function(exports_1, contex
                     this.name = this.heroForm.controls['name'];
                     this.powers = this.heroForm.controls['powers'];
                     this.age = this.heroForm.controls['age'];
+                    this.name.valueChanges.subscribe(function (value) {
+                        console.log("valor del nombre: " + value);
+                    });
+                    this.powers.valueChanges.subscribe(function (value) {
+                        console.log("valor de poderes: " + value);
+                    });
+                    this.age.valueChanges.subscribe(function (value) {
+                        console.log("valor del edad: " + value);
+                    });
+                    this.heroForm.valueChanges.subscribe(function (value) {
+                        console.log("El formulario de heroes ha cambiado ", value);
+                    });
                 }
                 HomePage = __decorate([
                     core_1.Component({
